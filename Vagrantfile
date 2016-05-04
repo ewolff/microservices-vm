@@ -6,7 +6,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "forwarded_port", guest: 5601, host: 5601     # Kibana for Log Analysis
   config.vm.network "forwarded_port", guest: 8080, host: 8080     # User Registration for Log Analysis
-  config.vm.network "forwarded_port", guest: 5601, host: 5601     # Elasticsearch for Log Analysis
+  config.vm.network "forwarded_port", guest: 9200, host: 9200     # Elasticsearch for Log Analysis
 
                                                                   # User Registration for Microservices also uses port 8080
   config.vm.network "forwarded_port", guest: 8761, host: 8761     # Eureka for Microservices
