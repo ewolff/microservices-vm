@@ -13,13 +13,14 @@ To run it:
 - Install Virtual Box from https://www.virtualbox.org/wiki/Downloads
 - Install Vagrant as discussed at
 http://docs.vagrantup.com/v2/installation/index.html
-- Run `build.sh` from the current directory. If you are using Windows:
-Take a look at the script. It should be easy to do the same steps manually.
+- Run `build.sh` from the current directory (Linux / Mac OS X). If you
+  are using Windows: run `build.cmd` instead.
 
 To check the installation:
 
 - There should be no errors displayed.... ;-)
-- Enter `vagrant ssh` to login to the VM
+- Enter `vagrant ssh` to login to the VM. If you use Windows, please
+  refer to https://gist.github.com/haf/2843680 to get ssh working.
 - `docker images` should return:
 ```
 vagrant@vagrant-ubuntu-wily-64:~$ docker images
