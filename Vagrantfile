@@ -12,7 +12,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8761, host: 8761     # Eureka for Microservices
   config.vm.network "forwarded_port", guest: 8989, host: 8989     # Hystrix Dashboard for Microservices
   config.vm.provider "virtualbox" do |v|
-    v.memory = 3000
+    v.memory = 4500
     v.cpus = 2
   end
 
