@@ -45,3 +45,5 @@ ewolff/docker-java              latest              051556b239ed        9 months
 
 Finally you can shutdown the VM using `vagrant halt` and start again
 using `vagrant up`.
+
+To get rid of the setup run clean.sh
