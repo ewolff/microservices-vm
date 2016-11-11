@@ -42,15 +42,15 @@ sudo -u vagrant tar xzf apache-maven-3.3.9-bin.tar.gz
 sudo -u vagrant echo export PATH=$PATH:/vagrant/apache-maven-3.3.9/bin >> /home/vagrant/.bashrc 
 
 cd /vagrant/
-sudo -u vagrant git clone -q https://github.com/ewolff/microservice.git
-cd microservice/microservice-demo
+sudo -u vagrant git clone -q https://github.com/innoq/microservice-consul.git
+cd microservice-consul/microservice-consul-demo
 sudo -u vagrant /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
 cd ..
 cd docker
 sudo -u vagrant docker-compose build
 
 cd /vagrant/
-sudo -u vagrant git clone -q https://github.com/ewolff/user-registration-V2.git
+sudo -u vagrant git clone -q https://github.com/innoq/user-registration-V2.git
 cd user-registration-V2
 cd user-registration-application
 sudo -u vagrant /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
