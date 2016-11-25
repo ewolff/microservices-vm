@@ -1,16 +1,11 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/wily64"
-  config.vm.network "forwarded_port", guest: 2003, host: 12003     # Carbon for Graphite
-  config.vm.network "forwarded_port", guest: 8082, host: 18082     # Graphite Web for Graphite
-  config.vm.network "forwarded_port", guest: 8083, host: 18083     # User Registration for Graphite
 
-  config.vm.network "forwarded_port", guest: 5601, host: 15601     # Kibana for Log Analysis
-  config.vm.network "forwarded_port", guest: 8080, host: 18080     # User Registration for Log Analysis
-  config.vm.network "forwarded_port", guest: 9200, host: 19200     # Elasticsearch for Log Analysis
-
-                                                                  # User Registration for Microservices also uses port 8080
-  config.vm.network "forwarded_port", guest: 8761, host: 18761     # Eureka for Microservices
-  config.vm.network "forwarded_port", guest: 8989, host: 18989     # Hystrix Dashboard for Microservices
+  config.vm.network "forwarded_port", guest: 8500, host: 8500     # Consul
+  config.vm.network "forwarded_port", guest: 5601, host: 5601     # Kibana for Log Analysis
+  config.vm.network "forwarded_port", guest: 8080, host: 8081     # User Registration for Log Analysis
+  config.vm.network "forwarded_port", guest: 8989, host: 8989     # Hystrix
+  config.vm.network "forwarded_port", guest: 8082, host: 8082     # Graphite
   config.vm.provider "virtualbox" do |v|
     v.memory = 4500
     v.cpus = 2
