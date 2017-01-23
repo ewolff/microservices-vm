@@ -1,9 +1,10 @@
 Microservice VM
 ==============
 
-This project creates a VM with the Microservices project and the
-Continuous Delivery example. It is useful for workshops etc. The VM
-uses 4.5GB of RAM and 2 CPUs. Therefore it needs some ressources. Please
+This project creates a VM with the Microservices project https://github.com/innoq/microservice-consul and the
+Continuous Delivery example https://github.com/innoq/user-registration-V2/. It is useful for workshops etc. 
+Please see the project READMEs for further details on the samples.
+The VM uses 4.5GB of RAM and 2 CPUs. Therefore it needs some ressources. Please
 also note that a lot of software is installed on these machine i.e. it
 will take quite a while to install and it will download considerable
 amounts of data.
