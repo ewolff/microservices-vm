@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.network "forwarded_port", guest: 8500, host: 8500     # Consul
   config.vm.network "forwarded_port", guest: 5601, host: 5601     # Kibana for Log Analysis
-  config.vm.network "forwarded_port", guest: 8080, host: 8081     # User Registration for Log Analysis
+  config.vm.network "forwarded_port", guest: 8080, host: 8080     # User Registration for Log Analysis
   config.vm.network "forwarded_port", guest: 8989, host: 8989     # Hystrix
   config.vm.network "forwarded_port", guest: 8082, host: 8082     # Graphite
   config.vm.provider "virtualbox" do |v|
