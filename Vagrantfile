@@ -44,7 +44,7 @@ sudo -u vagrant echo export PATH=$PATH:/vagrant/apache-maven-3.3.9/bin >> /home/
 cd /vagrant/
 sudo -u vagrant git clone -q https://github.com/ewolff/microservice.git
 cd microservice/microservice-demo
-sudo -u vagrant /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
+sudo -u vagrant /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
 cd ..
 cd docker
 sudo -u vagrant docker-compose build
