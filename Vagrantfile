@@ -1,11 +1,11 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.network "forwarded_port", guest: 8500, host: 8500     # Consul
-  config.vm.network "forwarded_port", guest: 5601, host: 5601     # Kibana for Log Analysis
-  config.vm.network "forwarded_port", guest: 8080, host: 8080     # User Registration for Log Analysis
-  config.vm.network "forwarded_port", guest: 8989, host: 8989     # Hystrix
-  config.vm.network "forwarded_port", guest: 8082, host: 8082     # Graphite
+  config.vm.network "forwarded_port", guest: 8500, host: 8500, host_ip: "127.0.0.1"     # Consul
+  config.vm.network "forwarded_port", guest: 5601, host: 5601, host_ip: "127.0.0.1"     # Kibana for Log Analysis
+  config.vm.network "forwarded_port", guest: 8080, host: 8080, host_ip: "127.0.0.1"     # User Registration for Log Analysis
+  config.vm.network "forwarded_port", guest: 8989, host: 8989, host_ip: "127.0.0.1"     # Hystrix
+  config.vm.network "forwarded_port", guest: 8082, host: 8082, host_ip: "127.0.0.1"     # Graphite
   config.vm.provider "virtualbox" do |v|
     v.memory = 4500
     v.cpus = 2
