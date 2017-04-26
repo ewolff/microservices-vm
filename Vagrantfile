@@ -44,6 +44,8 @@ sudo -u vagrant /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSource
 cd ..
 cd docker
 sudo -u vagrant docker-compose build
+sudo -u vagrant docker-compose up -d
+sudo -u vagrant docker-compose down
 
 cd /vagrant/
 sudo -u vagrant git clone -q https://github.com/innoq/user-registration-V2.git
