@@ -37,13 +37,12 @@ sudo -u ubuntu echo export PATH=$PATH:/vagrant/apache-maven-3.3.9/bin >> /home/v
 
 cd /vagrant/
 sudo -u ubuntu git clone -q https://github.com/ewolff/microservice-consul.git
-cd microservice/microservice-demo
+cd /vagrant/microservice-consul/microservice-consul-demo
 sudo -u ubuntu /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
-cd ..
-cd docker
-sudo -u vagrant docker-compose build
-sudo -u vagrant docker-compose up -d
-sudo -u vagrant docker-compose down
+cd /vagrant/microservice-consul/docker
+sudo -u ubuntu docker-compose build
+sudo -u ubuntu docker-compose up -d
+sudo -u ubuntu docker-compose down
 
 cd /vagrant/
 sudo -u ubuntu git clone -q https://github.com/ewolff/user-registration-V2.git
