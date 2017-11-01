@@ -1,16 +1,10 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
-  config.vm.network "forwarded_port", guest: 2003, host: 12003     # Carbon for Graphite
-  config.vm.network "forwarded_port", guest: 8082, host: 18082     # Graphite Web for Graphite
-  config.vm.network "forwarded_port", guest: 8083, host: 18083     # User Registration for Graphite
-
-  config.vm.network "forwarded_port", guest: 5601, host: 15601     # Kibana for Log Analysis
-  config.vm.network "forwarded_port", guest: 8080, host: 18080     # User Registration for Log Analysis
-  config.vm.network "forwarded_port", guest: 9200, host: 19200     # Elasticsearch for Log Analysis
-
-                                                                  # User Registration for Microservices also uses port 8080
-  config.vm.network "forwarded_port", guest: 8761, host: 18761     # Eureka for Microservices
-  config.vm.network "forwarded_port", guest: 8989, host: 18989     # Hystrix Dashboard for Microservices
+  config.vm.network "forwarded_port", guest: 8500, host: 8500, host_ip: "127.0.0.1"     # Consul
+  config.vm.network "forwarded_port", guest: 5601, host: 5601, host_ip: "127.0.0.1"     # Kibana for Log Analysis
+  config.vm.network "forwarded_port", guest: 8080, host: 8080, host_ip: "127.0.0.1"     # User Registration for Log Analysis
+  config.vm.network "forwarded_port", guest: 8989, host: 8989, host_ip: "127.0.0.1"     # Hystrix
+  config.vm.network "forwarded_port", guest: 8082, host: 8082, host_ip: "127.0.0.1"     # Graphite
   config.vm.provider "virtualbox" do |v|
     v.memory = 4500
     v.cpus = 2
@@ -24,7 +18,7 @@ sudo echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" >> /etc/ap
 sudo apt-get update
 sudo apt-get dist-upgrade -y -qq 
 sudo apt-get purge -y -qq lxc-docker
-sudo apt-get install -y -qq docker-engine openjdk-8-jre-headless openjdk-8-jdk
+sudo apt-get install -y -qq git docker-engine openjdk-8-jre-headless openjdk-8-jdk
 sudo update-ca-certificates -f
 sudo service docker start
 sudo groupadd docker
@@ -42,12 +36,14 @@ sudo -u ubuntu tar xzf apache-maven-3.3.9-bin.tar.gz
 sudo -u ubuntu echo export PATH=$PATH:/vagrant/apache-maven-3.3.9/bin >> /home/vagrant/.bashrc 
 
 cd /vagrant/
-sudo -u ubuntu git clone -q https://github.com/ewolff/microservice.git
+sudo -u ubuntu git clone -q https://github.com/ewolff/microservice-consul.git
 cd microservice/microservice-demo
 sudo -u ubuntu /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
 cd ..
 cd docker
-sudo -u ubuntu docker-compose build
+sudo -u vagrant docker-compose build
+sudo -u vagrant docker-compose up -d
+sudo -u vagrant docker-compose down
 
 cd /vagrant/
 sudo -u ubuntu git clone -q https://github.com/ewolff/user-registration-V2.git

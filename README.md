@@ -1,9 +1,10 @@
 Microservice VM
 ==============
 
-This project creates a VM with the Microservices project and the
-Continuous Delivery example. It is useful for workshops etc. The VM
-uses 4.5GB of RAM and 2 CPUs. Therefore it needs some ressources. Please
+This project creates a VM with the Microservices project https://github.com/innoq/microservice-consul and the
+Continuous Delivery example https://github.com/innoq/user-registration-V2/. It is useful for workshops etc. 
+Please see the project READMEs for further details on the samples.
+The VM uses 4.5GB of RAM and 2 CPUs. Therefore it needs some ressources. Please
 also note that a lot of software is installed on these machine i.e. it
 will take quite a while to install and it will download considerable
 amounts of data.
@@ -23,27 +24,28 @@ To check the installation:
   refer to https://gist.github.com/haf/2843680 to get ssh working.
 - `docker images` should return:
 ```
-ubuntu@ubuntu-xenial:~$ docker images
-REPOSITORY                      TAG                 IMAGE ID            CREATED              SIZE
-loganalysis_kibana              latest              365a5f410b52        About a minute ago   113 MB
-loganalysis_user-registration   latest              36c816948a07        2 minutes ago        193 MB
-loganalysis_logstash            latest              59e5a1e6cbbf        2 minutes ago        301 MB
-loganalysis_elasticsearch       latest              54cf8beb3a88        3 minutes ago        202 MB
-graphite_graphite-web           latest              b4711061b6ad        3 minutes ago        234 MB
-graphite_user-registration      latest              ab647214b3dd        4 minutes ago        193 MB
-graphite_carbon                 latest              9a458e2f67b0        4 minutes ago        202 MB
-ms_order                        latest              73f03167b43a        5 minutes ago        232 MB
-ms_turbine                      latest              d25c19515e8d        5 minutes ago        213 MB
-ms_catalog                      latest              a29e56322ebf        5 minutes ago        231 MB
-ms_customer                     latest              892f98a767c3        5 minutes ago        231 MB
-ms_zuul                         latest              b5ad2bc1c038        5 minutes ago        213 MB
-ms_eureka                       latest              930ba9cec258        5 minutes ago        213 MB
-alpine                          3.2                 9d2a09b6323c        13 days ago          5.26 MB
-ewolff/docker-java              latest              27b031f90fda        5 weeks ago          167 MB
-ubuntu                          15.04               d1b55fd07600        13 months ago        131 MB
+vagrant@vagrant-ubuntu-wily-64:~$ docker images
+REPOSITORY                      TAG                 IMAGE ID            CREATED             SIZE
+loganalysis_kibana              latest              b9127aec0259        35 seconds ago      113MB
+loganalysis_user-registration   latest              99823c7c8983        2 minutes ago       193MB
+loganalysis_logstash            latest              649e63eef8d3        2 minutes ago       301MB
+loganalysis_elasticsearch       latest              f7f74666147d        4 minutes ago       202MB
+graphite_graphite-web           latest              c0322c1449f8        6 minutes ago       234MB
+graphite_user-registration      latest              ef6db0b00f51        6 minutes ago       193MB
+graphite_carbon                 latest              547f63b7868b        7 minutes ago       202MB
+msconsul_order                  latest              19b36f9e498c        13 minutes ago      221MB
+msconsul_turbine                latest              24c39bfb76f7        13 minutes ago      209MB
+msconsul_apache                 latest              8bdd02bcc1d2        13 minutes ago      288MB
+msconsul_catalog                latest              516606f53ad3        16 minutes ago      220MB
+msconsul_customer               latest              84629be9ac93        16 minutes ago      220MB
+alpine                          3.2                 9d2a09b6323c        7 weeks ago         5.26MB
+ewolff/docker-java              latest              27b031f90fda        2 months ago        167MB
+consul                          v0.6.4              b0971c9ec426        6 months ago        32.4MB
+ubuntu                          15.04               d1b55fd07600        15 months ago       131MB
+
 ```
 
 Finally you can shutdown the VM using `vagrant halt` and start again
 using `vagrant up`.
 
-To get rid of the setup run clean.sh
+To get rid of the setup run `clean.sh`.
