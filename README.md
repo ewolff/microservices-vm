@@ -42,6 +42,7 @@ alpine                          3.2                 9d2a09b6323c        7 weeks 
 ewolff/docker-java              latest              27b031f90fda        2 months ago        167MB
 consul                          v0.6.4              b0971c9ec426        6 months ago        32.4MB
 ubuntu                          15.04               d1b55fd07600        15 months ago       131MB
+
 ```
 
 Finally you can shutdown the VM using `vagrant halt` and start again
