@@ -31,14 +31,9 @@ sudo mv docker-compose /usr/local/bin/
 sudo chmod +x /usr/local/bin/docker-compose
 
 cd /vagrant/
-sudo -u ubuntu wget -nv http://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz
-sudo -u ubuntu tar xzf apache-maven-3.3.9-bin.tar.gz
-sudo -u ubuntu echo export PATH=$PATH:/vagrant/apache-maven-3.3.9/bin >> /home/vagrant/.bashrc 
-
-cd /vagrant/
 sudo -u ubuntu git clone -q https://github.com/ewolff/microservice-consul.git
 cd /vagrant/microservice-consul/microservice-consul-demo
-sudo -u ubuntu /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
+sudo -u ubuntu ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
 cd /vagrant/microservice-consul/docker
 sudo -u ubuntu docker-compose build
 sudo -u ubuntu docker-compose up -d
@@ -48,7 +43,7 @@ cd /vagrant/
 sudo -u ubuntu git clone -q https://github.com/ewolff/user-registration-V2.git
 cd user-registration-V2
 cd user-registration-application
-sudo -u ubuntu /vagrant/apache-maven-3.3.9/bin/mvn -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
+sudo -u ubuntu ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
 cd ..
 cd graphite
 sudo -u ubuntu docker-compose build
