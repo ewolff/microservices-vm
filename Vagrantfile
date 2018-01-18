@@ -36,8 +36,7 @@ cd /vagrant/microservice-consul/microservice-consul-demo
 sudo -u ubuntu ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
 cd /vagrant/microservice-consul/docker
 sudo -u ubuntu docker-compose build
-sudo -u ubuntu docker-compose up -d
-sudo -u ubuntu docker-compose down
+sudo -u ubuntu docker-compose pull
 
 cd /vagrant/
 sudo -u ubuntu git clone -q https://github.com/ewolff/user-registration-V2.git
@@ -47,9 +46,11 @@ sudo -u ubuntu ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true
 cd ..
 cd graphite
 sudo -u ubuntu docker-compose build
+sudo -u ubuntu docker-compose pull
 cd ..
 cd log-analysis
 sudo -u ubuntu docker-compose build
+sudo -u ubuntu docker-compose pull
 
 SCRIPT
   
