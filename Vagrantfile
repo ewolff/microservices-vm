@@ -31,26 +31,26 @@ sudo mv docker-compose /usr/local/bin/
 sudo chmod +x /usr/local/bin/docker-compose
 
 cd /vagrant/
-sudo -u ubuntu git clone -q https://github.com/ewolff/microservice-consul.git
+sudo -u vagrant git clone -q https://github.com/ewolff/microservice-consul.git
 cd /vagrant/microservice-consul/microservice-consul-demo
-sudo -u ubuntu ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
+sudo -u vagrant ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q clean package
 cd /vagrant/microservice-consul/docker
-sudo -u ubuntu docker-compose build
-sudo -u ubuntu docker-compose pull
+sudo docker-compose build
+sudo docker-compose pull
 
 cd /vagrant/
-sudo -u ubuntu git clone -q https://github.com/ewolff/user-registration-V2.git
+sudo -u vagrant git clone -q https://github.com/ewolff/user-registration-V2.git
 cd user-registration-V2
 cd user-registration-application
-sudo -u ubuntu ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
+sudo -u vagrant ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
 cd ..
-cd graphite
-sudo -u ubuntu docker-compose build
-sudo -u ubuntu docker-compose pull
+cd /vagrant/user-registration-V2/graphite/
+sudo docker-compose build
+sudo docker-compose pull
 cd ..
 cd log-analysis
-sudo -u ubuntu docker-compose build
-sudo -u ubuntu docker-compose pull
+sudo docker-compose build
+sudo docker-compose pull
 
 SCRIPT
   
