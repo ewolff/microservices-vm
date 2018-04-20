@@ -1,10 +1,3 @@
-docker save -o loganalysis_kibana.tgz loganalysis_kibana
-docker save -o loganalysis_user-registration.tgz loganalysis_user-registration
-docker save -o loganalysis_logstash.tgz loganalysis_logstash
-docker save -o loganalysis_elasticsearch.tgz loganalysis_elasticsearch
-docker save -o graphite_graphite-web.tgz graphite_graphite-web
-docker save -o graphite_user-registration.tgz graphite_user-registration
-docker save -o graphite_carbon.tgz graphite_carbon
 docker save -o msconsul_order.tgz msconsul_order
 docker save -o msconsul_hystrix-dashboard.tgz msconsul_hystrix-dashboard
 docker save -o msconsul_apache.tgz msconsul_apache
@@ -14,3 +7,7 @@ docker save -o alpine.tgz alpine
 docker save -o consul.tgz consul
 docker save -o ubuntu.tgz ubuntu
 docker save -o java.tgz ewolff/docker-java
+docker save -o filebeat.tgz docker.elastic.co/beats/filebeat
+docker save -o elasticsearch.tgz docker.elastic.co/elasticsearch/elasticsearch
+docker save -o kibana.tgz docker.elastic.co/kibana/kibana 
+docker save -o prometheus.tgz prom/prometheus    

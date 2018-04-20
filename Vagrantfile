@@ -37,20 +37,10 @@ sudo -u vagrant ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=tru
 cd /vagrant/microservice-consul/docker
 sudo docker-compose build
 sudo docker-compose pull
-
-cd /vagrant/
-sudo -u vagrant git clone -q https://github.com/ewolff/user-registration-V2.git
-cd user-registration-V2
-cd user-registration-application
-sudo -u vagrant ./mvnw -DskipTests -DdownloadSources=true -DdownloadJavadocs=true -q package
-cd ..
-cd /vagrant/user-registration-V2/graphite/
-sudo docker-compose build
-sudo docker-compose pull
-cd ..
-cd log-analysis
-sudo docker-compose build
-sudo docker-compose pull
+sudo docker-compose -f docker-compose-elastic.yml pull
+sudo docker-compose -f docker-compose-elastic.yml build
+sudo docker-compose -f docker-compose-prometheus.yml pull
+sudo docker-compose -f docker-compose-prometheus.yml build
 
 SCRIPT
   
